@@ -13,40 +13,46 @@
 <body>
     <div class="container">
         <div class="row">
-            
             <div class="col-md-12 Head">
                 <p id="datetime">Date/Time: <span id="datetime"></span></p>
-                
-                 <h1>Jyri Pappinen</h1>   
+                <h1>Jyri Pappinen</h1>
             </div>
-            <div class="col-md-6 box1">
-                <div class="col-md-6">
-                    <h2>Minä</h2>
-                    <p>
-                       asdasdasdasdasdasdasdasdasdasdasdasdaasdasdasdasda.
-                       asdasdasdasdasdasdasasdsd.asdasdas.d.asdasdasd. 
-                       asdasdasdasdasdasdasdasdasd..asdasdasdasdasdasd
-                    </p>
-                </div>      
+            <div id="box1" class="col-md-6 box1">
+                <h2>Minä</h2>
+                <h7>
+                    asdasdasdasdasdasdasdas
+                    asdasdasdasdasdasdasasd
+                    asdasdasdasdasdasdasdas
+                </h7>
             </div>
-            <div class="col-md-6 box2">
-                <dic class="col bottom">
-                    <p>Contact me</p>
-                </dic>
+            <div id="saapuva" class="col-md-6 saapuva">
+
+                <table class="table1">
+                    <thead>
+                        <tr>
+                            <th>Seuraava saapuva</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tablebody1"></tbody>
+                </table>
             </div>
-            <div id="aikataulu">
+
+            <div class="col-md-12 linja">
                 <br />
                 <p id="Linja"></p>
                 <br />
+            </div>
+            <div id="aikataulu" class="col-md-12 aikataulu">
                 <table class="table">
-                  <thead>
-                    <tr>
-                   
-                      <th>Lähtöaika</th>
-                  </thead>
-                  <tbody id="tablebody"></tbody>
+                    <thead>
+                        <tr>
+                            <th>Lähtöaika</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tablebody"></tbody>
                 </table>
-              </div>
+            </div>
+
         </div>
 
         <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
@@ -58,9 +64,6 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
             integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
         </script>
-        
-       
-
         <script src="script.js" crossorigin="anonymous"></script>
 </body>
 
