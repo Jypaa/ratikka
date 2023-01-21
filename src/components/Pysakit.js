@@ -16,8 +16,8 @@ const Pysakit =({pysakit})=>{
             <ul>       
                 {pysakit.calls[5].arrivalTime.slice(0,5)}
             </ul>
-        )}
-   
+        )
+    }
     else{
         return(<p></p>)
     }

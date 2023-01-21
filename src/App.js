@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import Aikataulut from './components/Aikataulut'
 import Pysakit from './components/Pysakit'
 import Aikatauluservice from './services/aikataulut'
+
 const App = () => {
 
   const[saapuminen, setSaapuminen]= useState([])
@@ -14,7 +15,7 @@ const App = () => {
     Aikatauluservice
       .getAll()
       .then(response => {
-        console.log('onnistuiko', response)
+        console.log('onnistuiko aikataulu', response)
         setSaapuminen(response.body["0829"])
         console.log('mitä tallentuu saapumiseenä',response.body["0829"])
       })  
@@ -23,7 +24,8 @@ const App = () => {
   useEffect(() => {
     Aikatauluservice
       .getStop()
-      .then(response => {        
+      .then(response => {  
+          console.log('onnistuiko pysäkit', response)  
           setPysakit(response.body)
       }) 
   },[])
@@ -34,14 +36,14 @@ useEffect(() => {
         Aikatauluservice
         .getStop()
         .then(response => {
-            console.log('TÄÄÄÄÄ ONNISTUUUU', response.body)
+            console.log('onnistuiko uudelleen pysäkkien nouto', response.body)
             setPysakit(response.body)
         })
       }, 3600000);
       return () => {
         clearInterval(aika);
       };
-    }, []);
+  }, []);
   
  
   useEffect(() => {   
@@ -60,16 +62,20 @@ useEffect(() => {
 
   return (
     <div>
-      <ul>
-        {saapuminen.map(saapuminen =>
-          <Aikataulut ajat={(saapuminen)}/>
-        )}
-      </ul>  
-      <ul>
-          {pysakit.map(pysakit =>
-            <Pysakit pysakit={(pysakit)}/>
+      <div className='saapuvat'>
+        <ul>
+          {saapuminen.map(saapuminen =>
+            <Aikataulut ajat={(saapuminen)}/>
           )}
-      </ul>  
+        </ul>  
+      </div>
+      <div className='pysakit'>
+        <ul>
+            {pysakit.map(pysakit =>
+              <Pysakit pysakit={(pysakit)}/>
+            )}
+        </ul>  
+      </div>
     </div>
   );
 }
