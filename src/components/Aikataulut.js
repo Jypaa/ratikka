@@ -4,16 +4,21 @@ const Aikataulut =({ajat})=>{
     //[0].call.expectedArrivalTime
   
     console.log("tässä",ajat)
-    console.log(ajat.call.expectedArrivalTime.slice(11,16))
-
+    console.log('onko pysäkillä',ajat.call.vehicleAtStop)
+    //console.log(ajat.call.expectedArrivalTime.slice(11,16))
+    if(ajat.call.vehicleAtStop === false){
+        
         return(
-            <ul>
-       
+            <ul>      
                 {ajat.call.expectedArrivalTime.slice(11,16)}
-
             </ul>
         )
-   
+   }
+   else{
+    return(
+        <p></p>
+    )
+   }
 }
 //{ajat.call.expectedArrivalTime.slice(11,16)}    
 export default Aikataulut
