@@ -8,9 +8,9 @@ const App = () => {
   const[saapuminen, setSaapuminen]= useState([])
   const[pysakit, setPysakit]= useState([])
 
-  //Aikatauluja https://data.itsfactory.fi/journeys/api/1/journeys?stopPointId=0829
   //live Saaapuminen: https://data.itsfactory.fi/journeys/api/1/stop-monitoring?stops=0829
-
+  //Aikatauluja ekat 100 https://data.itsfactory.fi/journeys/api/1/journeys?stopPointId=0829
+  //loput aikataulusta https://data.itsfactory.fi/journeys/api/1/journeys?startIndex=100&stopPointId=0829
   useEffect(() => {
     Aikatauluservice
       .getAll()
@@ -39,7 +39,7 @@ useEffect(() => {
             console.log('onnistuiko uudelleen pysäkkien nouto', response.body)
             setPysakit(response.body)
         })
-      }, 3600000);
+      }, 1800000);
       return () => {
         clearInterval(aika);
       };

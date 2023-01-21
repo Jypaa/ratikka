@@ -4,7 +4,7 @@ const Pysakit =({pysakit})=>{
     //[0].call.expectedArrivalTime
     
    // console.log("tässä on ",pysakit)
-    let aika=new Date(new Date().getTime()+129 *60000).toLocaleTimeString('en-GB', { timeZone: 'UTC' })
+    let aika=new Date(new Date().getTime()+128 *60000).toLocaleTimeString('en-GB', { timeZone: 'UTC' })
     //console.log('aika ny',aika )
     //console.log('pysäkit',pysakit.calls[5].arrivalTime)
     //console.log('pysäkit',typeof(pysakit.calls[5].arrivalTime))
