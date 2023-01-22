@@ -62,7 +62,9 @@ useEffect(() => {
 
   return (
     <div>
+
       <div className='saapuvat'>
+          <h2>SAAPUVAT</h2>
         <ul>
           {saapuminen.map(saapuminen =>
             <Aikataulut ajat={(saapuminen)}/>
@@ -70,6 +72,7 @@ useEffect(() => {
         </ul>  
       </div>
       <div className='pysakit'>
+      <h2>AIKATAULUT</h2>
         <ul>
             {pysakit.map(pysakit =>
               <Pysakit pysakit={(pysakit)}/>

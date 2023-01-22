@@ -7,15 +7,25 @@ const Aikataulut =({ajat})=>{
     //let minuutit = ajat.call.expectedArrivalTime.slice(11,16)-aika
     //console.log('tuloaika', ajat.call.expectedArrivalTime.slice(11,16))
     //console.log('aikaa jäljellä', minuutit)
-    console.log("tässä",ajat)
-    console.log('onko pysäkillä',ajat.call.vehicleAtStop)
-    //console.log(ajat.call.expectedArrivalTime.slice(11,16))
+    let aika=new Date(new Date().getTime()+120 *60000).toLocaleTimeString('en-GB', { timeZone: 'UTC' }).slice(3,5)
+    //console.log("aika",aika)
     if(ajat.call.vehicleAtStop === false){ 
-        return(
-            <ul>      
+       
+        let saapuminen = (ajat.call.expectedArrivalTime.slice(14,16))
+        //console.log("saapuminen", saapuminen)
+        if((parseInt(saapuminen) - parseInt(aika)) <= 5){         
+            return(
+            <ul className="aikatauluKiire">       
                 {ajat.call.expectedArrivalTime.slice(11,16)}
             </ul>
         )
+            }
+        else{
+            return(
+                <ul className="aikatauluEikiire">       
+                    {ajat.call.expectedArrivalTime.slice(11,16)}
+                </ul>
+        )}
    }
    else{
         return(<p></p>)

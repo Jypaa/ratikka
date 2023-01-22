@@ -5,6 +5,7 @@ const Pysakit =({pysakit})=>{
     
    // console.log("tässä on ",pysakit)
     let aika=new Date(new Date().getTime()+128 *60000).toLocaleTimeString('en-GB', { timeZone: 'UTC' })
+ 
     //console.log('aika ny',aika )
     //console.log('pysäkit',pysakit.calls[5].arrivalTime)
     //console.log('pysäkit',typeof(pysakit.calls[5].arrivalTime))
@@ -12,12 +13,12 @@ const Pysakit =({pysakit})=>{
     //console.log('asetus', typeof(aika))
     //console.log(pysakit.calls[5].arrivalTime >= aika)
     if(pysakit.calls[5].arrivalTime >= aika){
-       return(
-            <ul>       
+            return(
+            <ul className="pysakki">       
                 {pysakit.calls[5].arrivalTime.slice(0,5)}
             </ul>
         )
-    }
+            }
     else{
         return(<p></p>)
     }
