@@ -31,5 +31,9 @@ const getStop = () =>{
         return request.then(response =>response.data)
     }
 }
+const get ={
+    getAll,
+    getStop
+}
 
-export default {getAll, getStop}
+export default get
