@@ -9,17 +9,18 @@ const Url = 'https://data.itsfactory.fi/journeys/api/1/stop-monitoring?stops=082
 const Url2= `https://data.itsfactory.fi/journeys/api/1/journeys?stopPointId=0829&dayTypes=${days[day]}`
 const Url3= `https://data.itsfactory.fi/journeys/api/1/journeys?startIndex=70&stopPointId=0829&dayTypes=${days[day]}`
 
+//Haetaan seuraavia saapuvia
 const getAll = () => {
     const request = axios.get(Url)
     console.log("onnistui", request)
     return request.then(response =>response.data)
 }
 
+//Koska taulu on niin iso haetaan kahdessa erässä riippuen paljon kello on
 const getStop = () =>{
     let aika=new Date(new Date().getTime()+120 *60000).toLocaleTimeString('en-GB', { timeZone: 'UTC' })
-    console.log("paljon kello on",aika )
-    console.log( aika> "13:00:00")
-
+    //console.log("paljon kello on",aika )
+    //console.log( aika> "13:00:00")
     if( aika> "13:00:00"){
         const request = axios.get(Url3)
         console.log("noudettu pysäkit url13", request)
@@ -31,6 +32,7 @@ const getStop = () =>{
         return request.then(response =>response.data)
     }
 }
+
 const get ={
     getAll,
     getStop

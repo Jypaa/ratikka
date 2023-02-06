@@ -1,6 +1,5 @@
 const Aikataulut =({ajat})=>{
     //["0829"][0].call.expectedArrivalTime
-    //["0829"][0].call.expectedArrivalTime
     //[0].call.expectedArrivalTime
     //let aika=new Date(new Date().getTime()+120*60000).toLocaleTimeString('en-GB', { timeZone: 'UTC' }).slice(0,5)
     //console.log('aika', aika)
@@ -9,8 +8,9 @@ const Aikataulut =({ajat})=>{
     //console.log('aikaa jäljellä', minuutit)
     let aika=new Date(new Date().getTime()+120 *60000).toLocaleTimeString('en-GB', { timeZone: 'UTC' }).slice(3,5)
     //console.log("aika",aika)
-    if(ajat.call.vehicleAtStop === false){ 
-       
+
+    //Tarkastaa onko ratikka pysäkillä jos ei ole tulostaaa ajan joko vihreenä tai punaisena riippuen onko kiire pysäkille
+    if(ajat.call.vehicleAtStop === false){   
         let saapuminen = (ajat.call.expectedArrivalTime.slice(14,16))
         //console.log("saapuminen", saapuminen)
         if((parseInt(saapuminen) - parseInt(aika)) <= 5){         

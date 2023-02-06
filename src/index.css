@@ -35,7 +35,6 @@ body{
     color:green
 }
 
-
 @media only screen and (max-width: 350px) {
     .saapuvat , .pysakit{
         width: 100%; 

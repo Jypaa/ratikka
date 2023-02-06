@@ -11,6 +11,8 @@ const App = () => {
   //live Saaapuminen: https://data.itsfactory.fi/journeys/api/1/stop-monitoring?stops=0829
   //Aikatauluja ekat 100 https://data.itsfactory.fi/journeys/api/1/journeys?stopPointId=0829&dayTypes=${days[day]}
   //loput aikataulusta https://data.itsfactory.fi/journeys/api/1/journeys?startIndex=70&stopPointId=0829&dayTypes=${days[day]}
+
+  //Haetaan seuraavaksi saapuvat sovelluksen käynnistyessä
   useEffect(() => {
     Aikatauluservice
       .getAll()
@@ -21,6 +23,7 @@ const App = () => {
       })  
   },[])
 
+  //Haetaan aikataulut sovelluksen käynnistyessä
   useEffect(() => {
     Aikatauluservice
       .getStop()
@@ -29,7 +32,8 @@ const App = () => {
           setPysakit(response.body)
       }) 
   },[])
- 
+
+//Haetaan pysäkit uudelleen ajan kuluttua
 useEffect(() => {
       let aika = setInterval(() => {
         setPysakit([])
@@ -45,7 +49,7 @@ useEffect(() => {
       };
   }, []);
   
- 
+ //Haetaan aikataulut uudelleen ajan kuluttua
   useEffect(() => {   
     let interval = setInterval(() => {     
       setSaapuminen([])
@@ -62,12 +66,11 @@ useEffect(() => {
 
   return (
     <div>
-
       <div className='saapuvat'>
           <h2>SAAPUVAT</h2>
         <ul>
           {saapuminen.map(saapuminen =>
-            <Aikataulut ajat={(saapuminen)}/>
+            <Aikataulut ajat={(saapuminen)}/> //Tulostetaan saapuvat
           )}
         </ul>  
       </div>
@@ -75,7 +78,7 @@ useEffect(() => {
       <h2>AIKATAULUT</h2>
         <ul>
             {pysakit.map(pysakit =>
-              <Pysakit pysakit={(pysakit)}/>
+              <Pysakit pysakit={(pysakit)}/> //Tulostetaan aikataulut
             )}
         </ul>  
       </div>

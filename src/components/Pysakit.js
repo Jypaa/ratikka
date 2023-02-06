@@ -12,15 +12,27 @@ const Pysakit =({pysakit})=>{
     //console.log('asetus', aika)
     //console.log('asetus', typeof(aika))
     //console.log(pysakit.calls[5].arrivalTime >= aika)
+
+    //Tulostetaan Aikatauluja koska if lause ei täyty jos saapumis aika heti puolen yön jälkeen niin käytetään elsessä lähtöaikaa, koska ollaan 
+    //niin lähellä pääte pysäkkiä
     if(pysakit.calls[5].arrivalTime >= aika){
             return(
             <ul className="pysakki">       
                 {pysakit.calls[5].arrivalTime.slice(0,5)}
             </ul>
         )
-            }
+    }
     else{
-        return(<p></p>)
+        if(pysakit.departureTime > aika){
+            return(
+                <ul className="pysakki">       
+                    {pysakit.calls[5].arrivalTime.slice(0,5)}
+                </ul>
+            )
+        }
+        else{
+            return(<p></p>)
+        }
     }
 }    
        
