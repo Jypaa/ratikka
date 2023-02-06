@@ -7,7 +7,7 @@ console.log("mikä päivä välillä 0-6",day)
 console.log("mikä päivä on",days[day])
 const Url = 'https://data.itsfactory.fi/journeys/api/1/stop-monitoring?stops=0829'
 const Url2= `https://data.itsfactory.fi/journeys/api/1/journeys?stopPointId=0829&dayTypes=${days[day]}`
-const Url3= `https://data.itsfactory.fi/journeys/api/1/journeys?startIndex=50&stopPointId=0829&dayTypes=${days[day]}`
+const Url3= `https://data.itsfactory.fi/journeys/api/1/journeys?startIndex=70&stopPointId=0829&dayTypes=${days[day]}`
 
 const getAll = () => {
     const request = axios.get(Url)

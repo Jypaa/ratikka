@@ -9,8 +9,8 @@ const App = () => {
   const[pysakit, setPysakit]= useState([])
 
   //live Saaapuminen: https://data.itsfactory.fi/journeys/api/1/stop-monitoring?stops=0829
-  //Aikatauluja ekat 100 https://data.itsfactory.fi/journeys/api/1/journeys?stopPointId=0829
-  //loput aikataulusta https://data.itsfactory.fi/journeys/api/1/journeys?startIndex=100&stopPointId=0829
+  //Aikatauluja ekat 100 https://data.itsfactory.fi/journeys/api/1/journeys?stopPointId=0829&dayTypes=${days[day]}
+  //loput aikataulusta https://data.itsfactory.fi/journeys/api/1/journeys?startIndex=70&stopPointId=0829&dayTypes=${days[day]}
   useEffect(() => {
     Aikatauluservice
       .getAll()
